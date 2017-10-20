@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   testing: {
     borderWidth: 1,
     borderColor: '#42b6f4',
-    alignContent: 'flex-end',
+    alignContent: 'center',
     backgroundColor: '#fff',
   },
   textContent: {
@@ -25,18 +25,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     backgroundColor: '#42f4ad',
   },
 });
 
 const ContentPage = () => (
   <View style={styles.container}>
-    <Header
-      leftComponent={{ icon: 'menu', color: '#fff' }}
-      centerComponent={{ text: 'MY TITLE', style: { color: '#fff' } }}
-      rightComponent={{ icon: 'home', color: '#fff' }}
-    />
     <Text style={styles.textContent}>
         This is our new page
     </Text>

@@ -6,12 +6,12 @@ on an so forth
 */
 
 import {
-  DrawerNavigator,
   TabNavigator,
   StackNavigator,
 } from 'react-navigation';
-import Icon from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
+console.log('what is Icon: ', Icon);
 
 // Screens
 import Landing from '../screens/Landing';
@@ -22,7 +22,7 @@ import Mindset from '../screens/Mindset';
 import Movements from '../screens/Movements';
 
 // NOTE: Routes/Navigators
-export const System = DrawerNavigator({
+export const SystemStack = TabNavigator({
   Workouts: {
     screen: Workouts,
   },
@@ -32,23 +32,31 @@ export const System = DrawerNavigator({
   Mindset: {
     screen: Mindset,
   },
+  Equipment: {
+    screen: Equipment,
+  },
+}, {
+  tabBarPosition: 'top',
 });
 
 export const Pages = StackNavigator({
   Workouts: {
-    screen: System,
+    screen: SystemStack,
+    navigationOptions: {
+      title: 'Explore',
+    },
   },
-  Equipment: {
-    screen: Equipment,
-  },
+
+},
+{
+  headerMode: 'none',
 });
 
 export const Root = TabNavigator({
-  Home: {
-    screen: Landing,
-  },
-  Content: {
+  Homet: {
     screen: ContentPage,
+    tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />,
+    tabBarLabel: 'Home',
   },
   Pages: {
     screen: Pages,
