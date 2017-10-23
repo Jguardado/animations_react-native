@@ -6,22 +6,22 @@ import {
 } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 
-const exercises = ['bench', 'deadlift', 'squat'];
+const exercises = [{ exercise: 'bench', reps: 4 }, { exercise: 'deadlift', reps: 5 }, { exercise: 'squat', reps: 3 }];
 
 class Workouts extends Component {
-  showExercise(exercise) {
-    this.props.navigation.navigate('Movements', { exercise });
+  showExercise(move) {
+    this.props.navigation.navigate('Movements', { ...move });
   }
 
   render() {
     return (
       <ScrollView>
         <List>
-          {exercises.map(exercise => (
+          {exercises.map(move => (
             <ListItem
-              key={exercise}
-              title={exercise}
-              onPress={() => this.showExercise(exercise)}
+              key={move.exercise}
+              title={move.exercise}
+              onPress={() => this.showExercise(move)}
             />
           ))}
         </List>

@@ -7,14 +7,14 @@ import {
 
 class Movements extends Component {
   render() {
-    // const { exercise } = this.props.navigation.state.params;
+    const { exercise } = this.props.navigation.state.params;
     return (
       <View>
         <Text>
           Movements
         </Text>
         <Text>
-          Should be exercise
+          {exercise}
         </Text>
       </View>
     );

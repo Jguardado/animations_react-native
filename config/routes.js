@@ -22,13 +22,7 @@ import Mindset from '../screens/Mindset';
 import Movements from '../screens/Movements';
 
 // NOTE: Routes/Navigators
-export const SystemStack = TabNavigator({
-  Workouts: {
-    screen: Workouts,
-  },
-  Movements: {
-    screen: Movements,
-  },
+export const DetailsTabs = TabNavigator({
   Mindset: {
     screen: Mindset,
   },
@@ -37,6 +31,21 @@ export const SystemStack = TabNavigator({
   },
 }, {
   tabBarPosition: 'top',
+});
+
+export const SystemStack = StackNavigator({
+  Workouts: {
+    screen: Workouts,
+    navigationOptions: {
+      title: 'Workouts',
+    },
+  },
+  Movements: {
+    screen: DetailsTabs,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.exercise.toUpperCase()}`,
+    }),
+  },
 });
 
 export const Pages = StackNavigator({
