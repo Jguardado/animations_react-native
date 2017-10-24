@@ -19,7 +19,7 @@ import ContentPage from '../screens/ContentPage';
 import Workouts from '../screens/Workouts';
 import Equipment from '../screens/Equipment';
 import Mindset from '../screens/Mindset';
-import Movements from '../screens/Movements';
+// import Movements from '../screens/Movements';
 
 // NOTE: Routes/Navigators
 export const DetailsTabs = TabNavigator({

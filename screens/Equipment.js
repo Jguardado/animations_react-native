@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
-const Equipment = () => (
-  <View>
-    <Text>
-      Equipment
-    </Text>
-  </View>
-);
+class Equipment extends Component {
+  render() {
+    const { exercise } = this.props.navigation.state.params;
+    return (
+      <View>
+        <Text>
+          Equipment
+        </Text>
+        <Text>
+          {exercise}
+        </Text>
+      </View>
+    );
+  }
+}
 
 export default Equipment;

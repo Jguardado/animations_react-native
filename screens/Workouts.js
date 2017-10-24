@@ -11,6 +11,7 @@ const exercises = [{ exercise: 'bench', reps: 4 }, { exercise: 'deadlift', reps:
 class Workouts extends Component {
   showExercise(move) {
     this.props.navigation.navigate('Movements', { ...move });
+    // this.props.navigation.navigate('Equipment', { ...move });
   }
 
   render() {
