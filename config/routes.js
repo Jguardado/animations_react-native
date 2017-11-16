@@ -11,8 +11,6 @@ import {
 } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
-console.log('what is Icon: ', Icon);
-
 // Screens
 import Landing from '../screens/Landing';
 import ContentPage from '../screens/ContentPage';

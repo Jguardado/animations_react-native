@@ -10,6 +10,8 @@ import Animation from 'lottie-react-native';
 import anim from '../assets/soda_loader.json';
 import btn from '../assets/button_press.json';
 
+//NOTE: This page is not be ing used at the moment
+
 export default class Landing extends Component {
   componentDidMount() {
     this.animation.play();
@@ -17,9 +19,10 @@ export default class Landing extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    const { containerStyle, welcomeStyle, buttonStyle, spinnerStyle } = styles;
     return (
-      <View style={styles.container}>
-        <View className={styles.spinner}>
+      <View style={containerStyle}>
+        <View className={spinnerStyle}>
           <Animation
             ref={(animation) => {
               this.animation = animation;
@@ -42,24 +45,24 @@ export default class Landing extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
+const styles = {
+  containerStyle: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#42b6f4',
   },
-  welcome: {
+  welcomeStyle: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
     color: '#ffffff',
   },
-  button: {
+  buttonStyle: {
     borderWidth: 2,
     backgroundColor: '#fff',
   },
-  spinner: {
+  spinnerStyle: {
     top: 0,
   },
-});
+};

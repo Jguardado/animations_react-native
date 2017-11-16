@@ -1,50 +1,69 @@
 import React, { Component } from 'react';
-import { Header } from 'react-native-elements';
-// import SideBar from './SideBar';
-
+import { connect } from 'react-redux';
 import {
-  // Platform,
-  StyleSheet,
-  Button,
+  TouchableOpacity,
   Text,
   View,
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  testing: {
+const ContentPage = () => {
+  const { 
+    containerStyle, 
+    textContent, 
+    buttonStyle, 
+    buttonTextStyle 
+  } = styles;
+  
+  return (
+    <View style={containerStyle}>
+      <Text style={textContent}>
+          Welcome to LearnLift
+      </Text>
+      <TouchableOpacity style={buttonStyle}>
+        <Text style={buttonTextStyle}>Login</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = {
+  buttonStyle: {
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'space-around',
     borderWidth: 1,
     borderColor: '#42b6f4',
-    alignContent: 'center',
     backgroundColor: '#fff',
+    borderRadius: 4,
+    marginLeft: 10,
+    marginRight: 10,
+    height: 50
+  },
+  buttonTextStyle: {
+    fontSize: 25,
+    fontWeight: '400',
+    position: 'relative'
   },
   textContent: {
-    // flex: 2,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    fontSize: 30,
+    fontWeight: '600',
+    marginBottom: 75
   },
-  container: {
+  containerStyle: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#42f4ad',
   },
+};
+
+const mapStateToProps = () => ({
+
 });
 
-const ContentPage = () => (
-  <View style={styles.container}>
-    <Text style={styles.textContent}>
-        This is our new page
-    </Text>
-    <View style={styles.testing}>
-      <Button
-        onPress={() => console.warn('pressed')}
-        title="thats it"
-      >
-        Press Me!
-      </Button>
+const mapDispatchToProps = () => ({
 
-    </View>
-  </View>
-);
-
-export default ContentPage;
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ContentPage);
